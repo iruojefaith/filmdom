@@ -1,6 +1,6 @@
 import * as React from 'react';
 import './App.css';
-import Trending from './components/search';
+import Trending from './components/Search';
 import Search from './components/Trending';
 
 export default function App() {
