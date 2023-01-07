@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, NavLink, Routes }  from "react-router-dom";
 
-import  './navbar';
+import './nav.css'
 
 //Pages
 const Home = () => {
@@ -12,10 +12,10 @@ const Home = () => {
   );
 };
 
-const About = () => {
+const Movies = () => {
   return (
     <div>
-      <h1>About</h1>
+      <h1>Movies</h1>
     </div>
   );
 };
@@ -23,7 +23,7 @@ const About = () => {
 const Contact = () => {
   return (
     <div>
-      <h1>Contact Us</h1>
+      <h1>My List</h1>
     </div>
   );
 };
@@ -41,7 +41,7 @@ function NavBar() {
       <nav className="navbar" onClick={e => e.stopPropagation()}>
         <div className="nav-container">
           <NavLink exact to="/" className="nav-logo">
-            IRUOJE
+            FilmDom
             <i className="fa fa-code"></i>
           </NavLink>
           <ul className={click ? "nav-menu active" : "nav-menu"}>
@@ -64,7 +64,7 @@ function NavBar() {
                 className="nav-links"
                 onClick={click ? handleClick : null}
               >
-                About
+                Movies
               </NavLink>
             </li>
 
@@ -76,7 +76,7 @@ function NavBar() {
                 className="nav-links"
                onClick={click ? handleClick : null}
               >
-                Contact Us
+               My List
               </NavLink>
             </li>
           </ul>
@@ -100,7 +100,7 @@ function Navbar () {
         <div className="pages">
           <Routes>
             <Route exact path="/" component={Home} />
-            <Route path="/about" component={About} />
+            <Route path="/about" component={Movies} />
             <Route path="/contact" component={Contact} />
           </Routes>
         </div>

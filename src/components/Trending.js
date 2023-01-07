@@ -25,20 +25,22 @@ console.log(popularMovies);
   return (
      <div>
   <ul className="cards">
-    <li className="">
+    <li className="card_items">
     {popularMovies.map((item, index)=>{
       return(
         <div className="card " key={index}>
-        <div className="card_image">
+
           <img src={`${IMAGE_URL}${item.backdrop_path}`} />
 
-          </div>
+
         <div className="card_content">
           <h2 className="card_title">{item.title}</h2>
-          <p className="card_text">{item.original_language}</p>
-          <p >{item.release_date}</p>
-          <button className="btn card_btn">Show details</button>
-        </div>
+          <div className='card_content_small'>
+             <p className="card_text">{item.original_language}</p>
+              <p className="card_text">{item.release_date}</p>
+          </div>
+          </div>
+
       </div>
       )
     } )}

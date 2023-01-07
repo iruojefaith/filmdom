@@ -1,8 +1,6 @@
-h1, p {
-  font-family: Lato;
-}
+
 /* Font */
-@import url('https://fonts.googleapis.com/css?family=Quicksand:400,700');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&family=Space+Grotesk:wght@300;400;500;600;700&family=Work+Sans:wght@300;400;500;600;700&display=swap');
 
 /* Design */
 *,
@@ -17,7 +15,7 @@ html {
 
 body {
   color: #272727;
-  font-family: 'Quicksand', serif;
+  font-family: 'Poppins', serif;
   font-style: normal;
   font-weight: 400;
   letter-spacing: 0;
@@ -34,11 +32,11 @@ h1 {
     font-weight: 400;
     text-align: center;
 }
-
 img {
-  height: auto;
+  height: 100%;
   max-width: 100%;
   vertical-align: middle;
+  object-fit: cover;
 }
 
 .btn {
@@ -67,8 +65,10 @@ img {
   padding: 0;
 }
 
-.cards_item {
-  display: flex;
+.card_items {
+  display: grid;
+  grid-gap: 2rem;
+  grid-template-columns: repeat(5, 1fr);
   padding: 1rem;
 }
 
@@ -85,22 +85,31 @@ img {
 }
 
 .card {
-  background-color: white;
   border-radius: 0.25rem;
   box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
   display: flex;
   flex-direction: column;
+  height: 20rem;
+  position: relative;
   overflow: hidden;
 }
 
 .card_content {
   padding: 1rem;
-  background: linear-gradient(to bottom left, #EF8D9C 40%, #FFC39E 100%);
+  background-color: rgba(33,32,30,.16);
+  backdrop-filter: blur(54px);
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
+div.card_content_small{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .card_title {
   color: #ffffff;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: capitalize;
@@ -119,6 +128,12 @@ img {
   font-size: 13px;
   margin-top: 35px;
   text-align: center;
+}
+
+.card_image {
+  position: relative;
+  height: 100%;
+  width: 100%;
 }
 
 
