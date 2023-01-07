@@ -104,7 +104,11 @@ img {
 }
 div.card_content_small{
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns:repeat(4, [col-start] fit-content(200px) [col-end]);
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  color: #ecf9ff;
 }
 
 .card_title {
@@ -117,8 +121,8 @@ div.card_content_small{
 }
 
 .card_text {
-  color: #ffffff;
-  font-size: 0.875rem;
+  color: #f5b921;
+  font-size: 0.775rem;
   line-height: 1.5;
   margin-bottom: 1.25rem;
   font-weight: 400;

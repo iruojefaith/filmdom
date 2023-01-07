@@ -1,4 +1,6 @@
-import React,{ useState, useEffect } from 'react'
+import React,{ useState, useEffect } from 'react';
+import {BiShowAlt} from 'react-icons/bi';
+import {AiFillHeart, AiFillStar} from 'react-icons/ai';
 
 function Trending() {
 
@@ -35,9 +37,10 @@ console.log(popularMovies);
 
         <div className="card_content">
           <h2 className="card_title">{item.title}</h2>
-          <div className='card_content_small'>
-             <p className="card_text">{item.original_language}</p>
-              <p className="card_text">{item.release_date}</p>
+          <div className='card_content_small'> <p className="card_text">{item.release_date}</p>
+             <p><BiShowAlt /></p>
+              <p><AiFillHeart/></p>
+             <p className="card_text"><AiFillStar /> {item.vote_average}</p>
           </div>
           </div>
 
