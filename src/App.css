@@ -67,12 +67,6 @@ img {
   padding: 0;
 }
 
-.card_items {
-  display: grid;
-  grid-gap: 2rem;
-  grid-template-columns: repeat(5, 1fr);
-  padding: 1rem;
-}
 
 @media (min-width: 40rem) {
   .cards_item {

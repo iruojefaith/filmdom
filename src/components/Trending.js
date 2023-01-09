@@ -27,7 +27,7 @@ console.log(popularMovies);
   return (
      <div>
   <ul className="cards">
-    <li className="card_items">
+    <li className="grid grid-cols-2 md:grid-cols-5 gap-4">
     {popularMovies.map((item, index)=>{
       return(
         <div className="card " key={index}>
