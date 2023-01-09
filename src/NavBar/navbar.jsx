@@ -1,5 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, NavLink, Routes }  from "react-router-dom";
+import { FaWindowClose } from 'react-icons/fa';
+import { BiMenuAltLeft } from 'react-icons/bi';
 
 import './nav.css'
 
@@ -81,7 +83,8 @@ function NavBar() {
             </li>
           </ul>
           <div className="nav-icon" onClick={handleClick}>
-            <i className={click ? "fa fa-times" : "fa fa-bars"}></i>
+          click ? <BiMenuAltLeft /> : <FaWindowClose />
+            {/* <i className={click ? "fa fa-times" : "fa fa-bars"}></i> */}
           </div>
         </div>
       </nav>
