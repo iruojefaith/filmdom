@@ -38,7 +38,7 @@ console.log(popularMovies);
 
 
         <div className="card_content">
-          <h2 className="card_title cursor-pointer "><Link to={`./singlemovie?name=${item.name}`}> {item.title} </Link></h2>
+          <h2 className="card_title cursor-pointer "><Link to={`./singlemovie`}> {item.title} </Link></h2>
           <div className='card_content_small'> <p className="card_text">{item.release_date}</p>
              <p><BiShowAlt /></p>
               <p><AiFillHeart/></p>

@@ -3,7 +3,7 @@ import Toprated from './Toprated';
 import Trending from './Trending';
 
 const Tab = () => {
-   const tabStatus = ["Trending","TopRated","New"];
+   const tabStatus = ["TopRated","Trending","New"];
     const [ openTab, setOpenTab ] = useState(1);
 
   return (
@@ -39,9 +39,9 @@ const Tab = () => {
             <div className='tab-content tab-space'>
               <div className=''>
                 {openTab === 0 ? (
-                  <Trending />
-                ) : openTab === 1 ? (
                   <Toprated />
+                ) : openTab === 1 ? (
+                  <Trending />
                 ) : (
                   <Toprated />
                 )}
