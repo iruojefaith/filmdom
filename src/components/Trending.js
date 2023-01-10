@@ -1,6 +1,8 @@
 import React,{ useState, useEffect } from 'react';
 import {BiShowAlt} from 'react-icons/bi';
 import {AiFillHeart, AiFillStar} from 'react-icons/ai';
+import { Link } from 'react-router-dom';
+import Singlemovie from './singlemovie';
 
 function Trending() {
 
@@ -36,7 +38,7 @@ console.log(popularMovies);
 
 
         <div className="card_content">
-          <h2 className="card_title">{item.title}</h2>
+          <h2 className="card_title cursor-pointer "><Link to={`./singlemovie?name=${item.name}`}> {item.title} </Link></h2>
           <div className='card_content_small'> <p className="card_text">{item.release_date}</p>
              <p><BiShowAlt /></p>
               <p><AiFillHeart/></p>

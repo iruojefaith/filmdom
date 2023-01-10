@@ -1,8 +1,9 @@
 import React,{ useEffect, useState } from 'react';
 import {BiShowAlt} from 'react-icons/bi';
 import {AiFillHeart, AiFillStar} from 'react-icons/ai';
+import { Link } from 'react-router-dom';
 
-function Toprated() {
+function Toprated () {
 
     const MOVIE_DB_API = '60d8e93915fd577e8623e3b9820322c3';
     const BASE_URL = 'https://api.themoviedb.org/3';
@@ -19,7 +20,7 @@ function Toprated() {
         console.log(topratedMovies);
     }
 
-    useEffect(()=>{getTopratedMovies()},[])
+    useEffect(()=>{getTopratedMovies()}, []);
 
   return (
     <div>
@@ -33,7 +34,7 @@ function Toprated() {
 
 
         <div className="card_content">
-          <h2 className="card_title">{item.title}</h2>
+        <h2 className="card_title">{item.title}</h2>
           <div className='card_content_small'> <p className="card_text">{item.release_date}</p>
              <p><BiShowAlt /></p>
               <p><AiFillHeart/></p>
@@ -51,4 +52,4 @@ function Toprated() {
   )
 }
 
-export default Toprated
+export default Toprated;

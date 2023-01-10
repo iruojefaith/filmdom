@@ -1,34 +1,9 @@
 import React from 'react';
-import { BrowserRouter, Route, NavLink, Routes }  from "react-router-dom";
-import { FaWindowClose } from 'react-icons/fa';
-import { BiMenuAltLeft } from 'react-icons/bi';
-
+import { NavLink }  from "react-router-dom";
 import './nav.css'
 
-//Pages
-const Home = () => {
-  return (
-    <div>
-      <h1>Home</h1>
-    </div>
-  );
-};
 
-const Movies = () => {
-  return (
-    <div>
-      <h1>Movies</h1>
-    </div>
-  );
-};
 
-const Contact = () => {
-  return (
-    <div>
-      <h1>My List</h1>
-    </div>
-  );
-};
 
 
 function NavBar() {
@@ -43,8 +18,7 @@ function NavBar() {
       <nav className="navbar" onClick={e => e.stopPropagation()}>
         <div className="nav-container">
           <NavLink exact to="/" className="nav-logo">
-            FilmDom
-            <i className="fa fa-code"></i>
+           FilmDom
           </NavLink>
           <ul className={click ? "nav-menu active" : "nav-menu"}>
             <li className="nav-item">
@@ -61,30 +35,29 @@ function NavBar() {
             <li className="nav-item">
               <NavLink
                 exact
-                to="/about"
+                to="/search"
                 activeClassName="active"
                 className="nav-links"
                 onClick={click ? handleClick : null}
               >
-                Movies
+                Search
               </NavLink>
             </li>
 
             <li className="nav-item">
               <NavLink
                 exact
-                to="/contact"
+                to="/addlist"
                 activeClassName="active"
                 className="nav-links"
                onClick={click ? handleClick : null}
               >
-               My List
+                Add to list
               </NavLink>
             </li>
           </ul>
           <div className="nav-icon" onClick={handleClick}>
-          click ? <BiMenuAltLeft /> : <FaWindowClose />
-            {/* <i className={click ? "fa fa-times" : "fa fa-bars"}></i> */}
+            <i className={click ? "fa fa-times" : "fa fa-bars"}></i>
           </div>
         </div>
       </nav>
@@ -92,23 +65,5 @@ function NavBar() {
   );
 }
 
-function Navbar () {
 
-  return (
-    <>
-
-       <BrowserRouter>
-        <NavBar />
-
-        <div className="pages">
-          <Routes>
-            <Route exact path="/" component={Home} />
-            <Route path="/about" component={Movies} />
-            <Route path="/contact" component={Contact} />
-          </Routes>
-        </div>
-      </BrowserRouter>
-    </>
-  );
-}
-export default Navbar
+export default NavBar
