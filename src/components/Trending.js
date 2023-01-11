@@ -28,20 +28,20 @@ const getPopularMovies = async() => {
 useEffect(()=>{getPopularMovies()},[])
 console.log(popularMovies);
   return (
-     <div>
-  <ul className="cards">
-    <li className="grid grid-cols-2 md:grid-cols-5 gap-4">
+     <div className='mx-[0] md:mx-[3rem] '>
+  <ul className="cards ">
+    <li className="grid grid-cols-2 md:grid-cols-5 gap-[2rem]">
     {popularMovies.map((item, index)=>{
       return(
         <div className="card " key={index}>
           <img src={`${IMAGE_URL}${item.backdrop_path}`} />
 
 
-        <div className="card_content">
+        <div className="card_content ">
           <h2 className="card_title cursor-pointer "><Link to={`./singlemovie`}> {item.title} </Link></h2>
-          <div className='card_content_small'>
-          <p className="card_text flex place-items-center">
-          {item.release_date}  <BiShowAlt /> <AiFillHeart/>  <p className=" flex place-items-center gap-2" ><BsFillStarFill />  {item.vote_average}</p></p>
+          <div className='card_content_small '>
+          <p className="card_text flex place-items-center my-[1rem] gap-[.2rem] md:gap-[1rem]">
+          {item.release_date}  <BiShowAlt /> <AiFillHeart/>  <p className=" flex place-items-center gap-2 text-[#f5b921]" ><BsFillStarFill />  {item.vote_average}</p></p>
           </div>
           </div>
 

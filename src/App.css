@@ -96,7 +96,7 @@ img {
   width: 100%;
   bottom: 0;
 }
-div.card_content_small{
+.card_content_small{
   display: grid;
   grid-template-columns:repeat(2, 1fr);
     align-items: center;
@@ -114,11 +114,9 @@ div.card_content_small{
 }
 
 .card_text {
-  color: #f5b921;
+  color: #ffffff;
   font-size: 0.775rem;
   line-height: 1.5;
-  padding:1rem;
-  gap: 2rem;
   margin-bottom: 1.25rem;
   font-weight: 400;
 }

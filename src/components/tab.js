@@ -17,9 +17,9 @@ const Tab = () => {
                 <li className=' text-center'>
                   <a
                     className={
-                      "text-xs md:text-xl font-normal px-[7rem] py-3 shadow-lg  block leading-normal " +
+                      "text-xs md:text-xl font-normal px-[1rem] md:px-[6rem] py-3 shadow-lg  block leading-normal " +
                       (openTab === i
-                        ? "text-white font-bold text-8xl " +
+                        ? "text-white font-bold md:text-3xl " +
                           "800 "
                         : "text-[#f5b921] " + "-600 ")
                     }

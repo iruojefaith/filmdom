@@ -24,9 +24,9 @@ function Toprated () {
     useEffect(()=>{getTopratedMovies()}, []);
 
   return (
-    <div>
+    <div className='mx-[0] md:mx-[3rem] '>
      <ul className="cards">
-     <li className="grid grid-cols-2 md:grid-cols-5 gap-4">
+     <li className="grid grid-cols-2 md:grid-cols-5 gap-[2rem] ">
     {topratedMovies.map((item, index)=>{
       return(
         <div className="card " key={index}>
@@ -36,12 +36,11 @@ function Toprated () {
 
         <div className="card_content">
         <h2 className="card_title">{item.title}</h2>
-          <div className='card_content_small'>
-          <p className="card_text flex place-items-center">
-          {item.release_date}  <BiShowAlt /> <AiFillHeart/>  <p className=" flex place-items-center gap-2 " ><BsFillStarFill />  {item.vote_average}</p></p>
+          <div className='card_content_small '>
+          <p className="card_text flex place-items-center my-[1rem] gap-[.6rem] md:gap-[1rem]">
+          {item.release_date}  <BiShowAlt /> <AiFillHeart/>  <p className=" flex place-items-center gap-1 text-[#f5b921]" ><BsFillStarFill />  {item.vote_average}</p></p>
           </div>
           </div>
-
       </div>
       )
     } )}
