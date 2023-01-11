@@ -88,7 +88,8 @@ img {
 }
 
 .card_content {
-  padding: 1rem;
+  padding: 1rem 1rem 0 1rem;
+  padding-bottom: 0;
   background-color: rgba(33,32,30,.16);
   backdrop-filter: blur(54px);
   position: absolute;
@@ -97,11 +98,10 @@ img {
 }
 div.card_content_small{
   display: grid;
-  grid-template-columns:repeat(4, [col-start] fit-content(200px) [col-end]);
-  gap: 1rem;
-  align-items: center;
+  grid-template-columns:repeat(2, 1fr);
+    align-items: center;
   justify-content: center;
-  color: #ecf9ff;
+
 }
 
 .card_title {
@@ -117,9 +117,12 @@ div.card_content_small{
   color: #f5b921;
   font-size: 0.775rem;
   line-height: 1.5;
+  padding:1rem;
+  gap: 2rem;
   margin-bottom: 1.25rem;
   font-weight: 400;
 }
+
 .made_by{
   font-weight: 400;
   font-size: 13px;

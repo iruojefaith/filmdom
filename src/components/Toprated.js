@@ -1,6 +1,7 @@
 import React,{ useEffect, useState } from 'react';
 import {BiShowAlt} from 'react-icons/bi';
-import {AiFillHeart, AiFillStar} from 'react-icons/ai';
+import {AiFillHeart} from 'react-icons/ai';
+import {BsFillStarFill} from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 
 function Toprated () {
@@ -35,10 +36,9 @@ function Toprated () {
 
         <div className="card_content">
         <h2 className="card_title">{item.title}</h2>
-          <div className='card_content_small'> <p className="card_text">{item.release_date}</p>
-             <p><BiShowAlt /></p>
-              <p><AiFillHeart/></p>
-             <p className="card_text"><AiFillStar /> {item.vote_average}</p>
+          <div className='card_content_small'>
+          <p className="card_text flex place-items-center">
+          {item.release_date}  <BiShowAlt /> <AiFillHeart/>  <p className=" flex place-items-center gap-2 " ><BsFillStarFill />  {item.vote_average}</p></p>
           </div>
           </div>
 
