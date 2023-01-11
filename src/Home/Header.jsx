@@ -1,7 +1,15 @@
-import React,{ useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect } from "react";
 import ReactDOM from 'react-dom/client';
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from 'react-responsive-carousel';
+
+
+import { SwiperSlide, Swiper } from "swiper/react";
+// Import Swiper styles
+import "swiper/css";
+// import "swiper/css/pagination";
+
+// import required modules
+import {  Autoplay } from "swiper";
+
 
 function Header() {
      const MOVIE_DB_API = '60d8e93915fd577e8623e3b9820322c3';
@@ -21,19 +29,40 @@ function Header() {
         useEffect(()=>{getheaderMovies()},[]);
 
   return (
-    <div className='p-[10px] '>
-    {headerMovies.slice(0, 5).map((item)=>{
-          <Carousel>
-                <div key={item.uid}>
-                    <img src={`${IMAGE_URL}${item.backdrop_path}`} />
-                    <p className="legend">Legend 1</p>
+   <>
+      <Swiper
+        slidesPerView={1}
+        spaceBetween={3}
+        // pagination={{
+        //   clickable: true,
+        // }}
+        modules={[ Autoplay]}
+        autoplay={{ delay: 9000, disableOnInteraction: true }}
+      >
+        {headerMovies.map((item , index) => {
+          return (
+            <SwiperSlide key={index}>
+              <div>
+                <img src={`${IMAGE_URL}${item.backdrop_path}`} />
+                <div className='relative bottom-52 flex items-center cat2-bg-grad gap-4 px-8 w-[90%] sm:w-[50%] justify-center md:mx-0 md:ml-auto mx-auto'>
+
+                  <p className='text-base text-center capitalize font-medium my-2 text-white py-6'>
+                   text
+                  </p>
+
                 </div>
-
-            </Carousel>
-    })}
-
-    </div>
+              </div>
+            </SwiperSlide>
+          );
+        })}
+      </Swiper>
+    </>
   )
 }
 
 export default Header;
+
+
+
+
+
