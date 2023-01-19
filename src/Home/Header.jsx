@@ -42,14 +42,16 @@ function Header() {
         {headerMovies.map((item , index) => {
           return (
             <SwiperSlide key={index}>
-              <div>
-                <img src={`${IMAGE_URL}${item.backdrop_path}`} />
+              <div className="header">
+                {/* <img src={`${IMAGE_URL}${item.backdrop_path}`} /> */}
                 <div className='relative bottom-52 flex items-center cat2-bg-grad gap-4 px-8 w-[90%] sm:w-[50%] justify-center md:mx-0 md:ml-auto mx-auto'>
-
-                  <p className='text-base text-center capitalize font-medium my-2 text-white py-6'>
-                   text
-                  </p>
-
+                  <div className="card_content">
+                   <h1>RATING</h1>
+                  <h1 className='text-base text-center capitalize font-medium my-2 text-white py-6'>
+                   TITLE
+                  </h1>
+                 <p>Description</p>
+                </div>
                 </div>
               </div>
             </SwiperSlide>
