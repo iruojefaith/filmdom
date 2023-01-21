@@ -21,7 +21,7 @@ function Header() {
 
   useEffect(() => {
     getheaderMovies();
-  }, []); 
+  }, []);
 
   return (
     <div className='p-[10px] '>

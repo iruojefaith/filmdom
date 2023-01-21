@@ -9,8 +9,8 @@ function Trending({ displayedMovies, loading }) {
   const IMAGE_URL = "https://image.tmdb.org/t/p/original/";
   if (loading) {
     return (
-      <div>
-        <h2>Loading...</h2>
+      <div className='flex items-center justify-center'>
+        <h2 className='text-center text-white'>Loading...</h2>
       </div>
     );
   }
