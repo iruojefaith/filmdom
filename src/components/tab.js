@@ -1,60 +1,89 @@
-import React,{ useState } from 'react';
-import Toprated from './Toprated';
-import Trending from './Trending';
-import {GiSmallFire} from 'react-icons/gi'
+import React, { useEffect, useState } from "react";
+import Toprated from "./Toprated";
+import Trending from "./Trending";
+import { GiSmallFire } from "react-icons/gi";
 
 const Tab = () => {
-   const tabStatus = ["Top Rated","Trending","Popular", "Upcoming"];
-    const [ openTab, setOpenTab ] = useState(1);
+  const tabStatus = [
+    { title: "Top Rated", path: "top_rated" },
+    { title: "Now Playing", path: "now_playing" },
+    { title: "Popular", path: "popular" },
+    { title: "Upcoming", path: "upcoming" },
+  ];
+  const [openTab, setOpenTab] = useState(1);
 
+  const MOVIE_DB_API = "60d8e93915fd577e8623e3b9820322c3";
+  const BASE_URL = "https://api.themoviedb.org/3";
+
+  const [popularMovies, setpopularMovies] = useState([]);
+  const [displayedMovies, setDisplayedMovies] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  const getMovies = async () => {
+    setLoading(true);
+    const PATH = tabStatus[openTab].path;
+    const URL = `${BASE_URL}/movie/${PATH}?api_key=${MOVIE_DB_API}`;
+    console.log({ PATH, URL });
+    const response = await fetch(URL);
+    const data = await response.json();
+    setLoading(false);
+    setpopularMovies(data.results);
+    setDisplayedMovies(data.results);
+    console.log(popularMovies);
+  };
+
+  useEffect(() => {
+    getMovies();
+  }, [openTab]);
+  console.log(popularMovies);
+
+  const tabController = (i) => {
+    setOpenTab(i);
+  };
   return (
     <div className='flex justify-center align-center '>
       <div className='w-full '>
         <div className='flex justify-center align-center mt-3'>
-          <ul className='flex mb-0 list-none pt-3 pb-4 flex-row cursor-pointer ' role='tablist'>
+          <ul
+            className='flex mb-0 list-none pt-3 pb-4 flex-row cursor-pointer '
+            role='tablist'
+          >
             {tabStatus.map((item, i) => {
               return (
                 <li className=' text-center'>
+                  {/* CORRECT THIS - CHANGE TO REACT ROUTER LINK COMPONENT*/}
                   <a
                     className={
                       "text-xs md:text-xl font-normal px-[1rem] md:px-[6rem] py-3 shadow-lg  block leading-normal " +
                       (openTab === i
-                        ? "text-white font-bold md:text-3xl " +
-                          "800 "
+                        ? "text-white font-bold md:text-3xl " + "800 "
                         : "text-[#f5b921] " + "-600 ")
                     }
                     key={i}
-                    onClick={() => setOpenTab(i)}
+                    onClick={() => tabController(i)}
                   >
-                    {item}
+                    {item.title}
                   </a>
+                  {/* CORRECT THIS */}
                 </li>
               );
             })}
           </ul>
         </div>
- <hr className='text-white  mx-6 mb-[5rem]'></hr>
+        <hr className='text-white  mx-6 mb-[5rem]' />
+
         <div className='relative flex flex-col min-w-0 break-words  w-full mb-6 shadow-lg rounded'>
           <div className='px-4 py-5 flex-auto'>
             <div className='tab-content tab-space'>
               <div className=''>
-                {openTab === 0 ? (
-
-                <Toprated />
-
-                ) : openTab === 1 ? (
-                  <Trending />
-                ) : (
-                  <Toprated />
-                )}
+                <Trending loading={loading} displayedMovies={displayedMovies} />
               </div>
-
             </div>
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Tab;

@@ -1,15 +1,14 @@
-import React from 'react'
-import Header from './Header';
-import Tab from '../components/tab';
+import React from "react";
+import Header from "./Header";
+import Tab from "../components/tab";
 
 const Home = () => {
   return (
     <div>
-        <Header />
-        <Tab />
-
+      <Header />
+      <Tab />
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
