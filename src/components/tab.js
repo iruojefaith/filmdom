@@ -15,7 +15,6 @@ const Tab = () => {
   const MOVIE_DB_API = "60d8e93915fd577e8623e3b9820322c3";
   const BASE_URL = "https://api.themoviedb.org/3";
 
-  const [popularMovies, setpopularMovies] = useState([]);
   const [displayedMovies, setDisplayedMovies] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -27,15 +26,13 @@ const Tab = () => {
     const response = await fetch(URL);
     const data = await response.json();
     setLoading(false);
-    setpopularMovies(data.results);
     setDisplayedMovies(data.results);
-    console.log(popularMovies);
   };
 
   useEffect(() => {
     getMovies();
   }, [openTab]);
-  console.log(popularMovies);
+
 
   const tabController = (i) => {
     setOpenTab(i);
@@ -51,8 +48,7 @@ const Tab = () => {
             {tabStatus.map((item, i) => {
               return (
                 <li className=' text-center'>
-                  {/* CORRECT THIS - CHANGE TO REACT ROUTER LINK COMPONENT*/}
-                  <a
+                  <div
                     className={
                       "text-xs md:text-xl font-normal px-[1rem] md:px-[6rem] py-3 shadow-lg  block leading-normal " +
                       (openTab === i
@@ -63,8 +59,7 @@ const Tab = () => {
                     onClick={() => tabController(i)}
                   >
                     {item.title}
-                  </a>
-                  {/* CORRECT THIS */}
+                  </div>
                 </li>
               );
             })}
