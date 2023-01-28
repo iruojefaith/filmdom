@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Toprated from "./Toprated";
 import Trending from "./Trending";
 import { GiSmallFire } from "react-icons/gi";
+import Search from "./Search";
 
 const Tab = () => {
   const tabStatus = [
@@ -17,6 +18,7 @@ const Tab = () => {
 
   const [displayedMovies, setDisplayedMovies] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [allMovies, setAllMovies] = useState([]);
 
   const getMovies = async () => {
     setLoading(true);
@@ -25,6 +27,7 @@ const Tab = () => {
     console.log({ PATH, URL });
     const response = await fetch(URL);
     const data = await response.json();
+    setAllMovies(data.results);
     setLoading(false);
     setDisplayedMovies(data.results);
   };
@@ -33,13 +36,26 @@ const Tab = () => {
     getMovies();
   }, [openTab]);
 
-
   const tabController = (i) => {
     setOpenTab(i);
   };
+
+  const handleChange = (e) => {
+    setLoading(true);
+    const val = e.target.value;
+    const matchingMovies = allMovies.filter((movie) =>
+      movie.original_title.toLowerCase().startsWith(val.toLowerCase())
+    );
+    setDisplayedMovies(matchingMovies);
+    setLoading(false);
+  };
+
   return (
     <div className='flex justify-center align-center '>
       <div className='w-full '>
+        <div className='max-w-2xl mx-auto'>
+          <Search handleChange={handleChange} />
+        </div>
         <div className='flex justify-center align-center mt-3'>
           <ul
             className='flex mb-0 list-none pt-3 pb-4 flex-row cursor-pointer '
