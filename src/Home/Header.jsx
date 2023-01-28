@@ -16,7 +16,6 @@ function Header() {
     const response = await fetch(URL);
     const data = await response.json();
     setheaderMovies(data.results);
-    console.log(headerMovies);
   };
 
   useEffect(() => {
