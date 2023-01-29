@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+//import useGlobalContext
+import { useGlobalContext } from "../context";
 
-// import Tab from "../components/tab";
-
-const Search = ({ handleChange }) => {
+const Search = () => {
+    //invoke useGlobalContext
+   const { handleChange } = useGlobalContext();
   return (
     <div>
       <div class='max-w-md mx-auto'>

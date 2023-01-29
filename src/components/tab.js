@@ -41,15 +41,6 @@ const Tab = () => {
     callAlert();
   };
 
-  const handleChange = (e) => {
-    setLoading(true);
-    const val = e.target.value;
-    const matchingMovies = allMovies.filter((movie) =>
-      movie.original_title.toLowerCase().startsWith(val.toLowerCase())
-    );
-    setDisplayedMovies(matchingMovies);
-    setLoading(false);
-  };
 
   return (
     <div className='flex justify-center align-center '>
