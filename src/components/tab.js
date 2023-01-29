@@ -7,7 +7,7 @@ import { useGlobalContext } from "../context";
 const Tab = () => {
   const { callAlert } = useGlobalContext();
   const tabStatus = [
-    { title: "Top Rated", path: "top_rated" },
+    { title: "Top Rated " , path: "top_rated" , icon: <GiSmallFire />},
     { title: "Now Playing", path: "now_playing" },
     { title: "Popular", path: "popular" },
     { title: "Upcoming", path: "upcoming" },
@@ -62,7 +62,7 @@ const Tab = () => {
             className='flex mb-0 list-none pt-3 pb-4 flex-row cursor-pointer '
             role='tablist'
           >
-            {tabStatus.map((item, i) => {
+            {this.state.tabStatus.map((item, i) => {
               return (
                 <li className=' text-center'>
                   <div
@@ -75,7 +75,7 @@ const Tab = () => {
                     key={i}
                     onClick={() => tabController(i)}
                   >
-                    {item.title}
+                    {item.title}{item.icon}
                   </div>
                 </li>
               );
