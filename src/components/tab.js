@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import Toprated from "./Toprated";
 import Trending from "./Trending";
 import { GiSmallFire } from "react-icons/gi";
 import Search from "./Search";
+import { useGlobalContext } from "../context";
 
 const Tab = () => {
+  const { callAlert } = useGlobalContext();
   const tabStatus = [
     { title: "Top Rated", path: "top_rated" },
     { title: "Now Playing", path: "now_playing" },
@@ -24,7 +25,6 @@ const Tab = () => {
     setLoading(true);
     const PATH = tabStatus[openTab].path;
     const URL = `${BASE_URL}/movie/${PATH}?api_key=${MOVIE_DB_API}`;
-    console.log({ PATH, URL });
     const response = await fetch(URL);
     const data = await response.json();
     setAllMovies(data.results);
@@ -38,6 +38,7 @@ const Tab = () => {
 
   const tabController = (i) => {
     setOpenTab(i);
+    callAlert();
   };
 
   const handleChange = (e) => {
