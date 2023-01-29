@@ -59,7 +59,7 @@ function NavBar() {
                 to='/addlist'
                 activeClassName='active'
                 className='nav-links'
-                onClick={callAlert}
+                onClick={click ? handleClick : null}
               >
               </NavLink>
             </li>

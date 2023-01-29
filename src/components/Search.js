@@ -31,7 +31,7 @@ const Search = () => {
             type='text'
             id='search'
             placeholder='Search Movies'
-            onChange={handleChange}
+            onChange={ handleChange}
           />
         </div>
       </div>
