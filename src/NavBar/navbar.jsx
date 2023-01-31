@@ -1,13 +1,11 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "./nav.css";
-//import useGlobalContext
-import { useGlobalContext } from "../context";
+
 
 function NavBar() {
   const [click, setClick] = React.useState(false);
-  //invoke useGlobalContext
-  const { numb, callAlert } = useGlobalContext();
+
 
   const handleClick = () => setClick(!click);
   const Close = () => setClick(false);
@@ -61,9 +59,8 @@ function NavBar() {
                 to='/addlist'
                 activeClassName='active'
                 className='nav-links'
-                onClick={callAlert}
+                onClick={click ? handleClick : null}
               >
-                Here {numb}
               </NavLink>
             </li>
           </ul>

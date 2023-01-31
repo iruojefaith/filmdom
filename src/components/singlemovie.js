@@ -1,5 +1,5 @@
 import React from 'react';
-import { SinglemovieContext } from "./Trending"
+
 
 const Singlemovie = () =>{
   return (

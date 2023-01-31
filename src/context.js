@@ -1,17 +1,24 @@
 // import useContext and createContext from react
-import React, { useContext, createContext } from "react";
-import { useState } from "react";
+import React, { useState, useContext, createContext } from "react";
 const AppContext = createContext();
 
 const AppProvider = ({ children }) => {
-  const numb = 6;
-  const callAlert = () => {
-    // alert("Hi, Faith talk sey mey we use anything.");
+  const [displayedMovies, setDisplayedMovies] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [allMovies, setAllMovies] = useState([]);
+
+  const handleChange = (e) => {
+    setLoading(true);
+    const val = e.target.value;
+    const matchingMovies = allMovies.filter((movie) =>
+      movie.original_title.toLowerCase().startsWith(val.toLowerCase())
+    );
+    setDisplayedMovies(matchingMovies);
+    setLoading(false);
   };
-  const [abuseFaith, setAbuseFaith] = useState("nonsense");
 
   return (
-    <AppContext.Provider value={{ numb, callAlert, abuseFaith, setAbuseFaith }}>
+    <AppContext.Provider value={{ handleChange }}>
       {children}
     </AppContext.Provider>
   );
