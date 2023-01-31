@@ -6,7 +6,7 @@ const AppContext = createContext();
 const AppProvider = ({ children }) => {
   const numb = 6;
   const callAlert = () => {
-    // alert("Hi, Faith talk sey mey we use anything");
+    // alert("Hi, Faith talk sey mey we use anything.");
   };
   const [abuseFaith, setAbuseFaith] = useState("nonsense");
 
