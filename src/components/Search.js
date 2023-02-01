@@ -1,15 +1,19 @@
-import React, { useState } from "react";
-//import useGlobalContext
-import { useGlobalContext } from "../context";
+import React from "react";
 
-const Search = () => {
+//import useGlobalContext
+// import { useGlobalContext } from "../context";
+
+const Search = ( {handleChange, displayedMovies, loading}) => {
   //invoke useGlobalContext
-  const { handleChange } = useGlobalContext();
+  // const { handleChange } = useGlobalContext();
+
+
+
   return (
     <div>
       <div class='max-w-md mx-auto'>
-        <div class='relative flex items-center w-full h-12 rounded-lg focus-within:shadow-lg bg-gray-700 overflow-hidden'>
-          <div class='grid place-items-center h-full w-12 text-gray-300'>
+        <div class='relative flex items-center w-full h-12 rounded-lg focus-within:shadow-lg bg-gray-200 overflow-hidden'>
+          <div class='grid place-items-center h-full w-12 text-gray-700'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               class='h-6 w-6'
@@ -27,7 +31,7 @@ const Search = () => {
           </div>
 
           <input
-            class='peer h-full w-full outline-none text-sm text-gray-200 pr-2 bg-gray-700'
+            class='peer h-full w-full outline-none text-sm text-gray-700 pr-2 bg-gray-200'
             type='text'
             id='search'
             placeholder='Search Movies'
