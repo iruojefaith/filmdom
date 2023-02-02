@@ -7,16 +7,20 @@ import AddList from "./components/Addlist";
 import Navbar from "./NavBar/navbar";
 import Singlemovie from "./components/singlemovie";
 
+
 export default function App() {
   return (
     <BrowserRouter>
       <Navbar />
+
       <Routes>
-        <Route exact path='/' element={<Home />} />
+        <Route path='/' element={<Home />} />
         <Route path='/search' element={<Search />} />
         <Route path='/addlist' element={<AddList />} />
         <Route path='/singlemovie' element={<Singlemovie />} />
       </Routes>
+
+
     </BrowserRouter>
   );
 }

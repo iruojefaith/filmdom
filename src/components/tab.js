@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
 import Trending from "./Trending";
-import { GiSmallFire } from "react-icons/gi";
+import { GiSmallFire, GiRoundStar  } from "react-icons/gi";
+import { FaChartLine, FaPlusSquare  } from "react-icons/fa";
 import Search from "./Search";
-import { useGlobalContext } from "../context";
+// import { useGlobalContext } from "../context";
 
 const Tab = () => {
-  const { callAlert } = useGlobalContext();
+  // const { callAlert } = useGlobalContext();
   const tabStatus = [
     { title: "Top Rated ", path: "top_rated", icon: <GiSmallFire /> },
-    { title: "Now Playing", path: "now_playing" },
-    { title: "Popular", path: "popular" },
-    { title: "Upcoming", path: "upcoming" },
+    { title: "Now Playing", path: "now_playing", icon: <GiRoundStar /> },
+    { title: "Popular", path: "popular", icon: <FaChartLine /> },
+    { title: "Upcoming", path: "upcoming", icon: <FaPlusSquare /> },
   ];
   const [openTab, setOpenTab] = useState(1);
 
@@ -49,7 +50,7 @@ const Tab = () => {
 
   const tabController = (i) => {
     setOpenTab(i);
-    callAlert();
+    // callAlert();
   };
 
   return (
@@ -66,19 +67,20 @@ const Tab = () => {
             {tabStatus.map((item, i) => {
               return (
                 <li className=' text-center'>
-                  <div
+                  <span
                     className={
-                      "text-xs md:text-xl font-normal px-[1rem] md:px-[6rem] py-3 shadow-lg  block leading-normal " +
+                      "text-xs md:text-xl font-normal px-[1rem] md:px-[6rem] py-3 shadow-lg  leading-normal flex place-items-center " +
                       (openTab === i
-                        ? "text-white font-bold md:text-3xl " + "800 "
+                        ? "text-white font-bold md:text-4xl " + "800 "
                         : "text-[#f5b921] " + "-600 ")
                     }
                     key={i}
                     onClick={() => tabController(i)}
                   >
+                  {item.icon} &nbsp;
                     {item.title}
-                    {item.icon}
-                  </div>
+
+                  </span>
                 </li>
               );
             })}

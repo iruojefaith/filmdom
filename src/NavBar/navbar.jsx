@@ -23,8 +23,7 @@ function NavBar() {
               <NavLink
                 exact
                 to='/'
-                activeClassName='active'
-                className='nav-links'
+                className={'navlinks'? 'active' : 'active' === 'null'}
                 onClick={click ? handleClick : null}
               >
                 Home
@@ -34,8 +33,7 @@ function NavBar() {
               <NavLink
                 exact
                 to='/search'
-                activeClassName='active'
-                className='nav-links'
+                className='navlinks '
                 onClick={click ? handleClick : null}
               >
                 Search
@@ -47,7 +45,7 @@ function NavBar() {
                 exact
                 to='/addlist'
                 activeClassName='active'
-                className='nav-links'
+                className='navlinks'
                 onClick={click ? handleClick : null}
               >
                 Add to list
@@ -58,7 +56,7 @@ function NavBar() {
                 exact
                 to='/addlist'
                 activeClassName='active'
-                className='nav-links'
+                className='navlinks'
                 onClick={click ? handleClick : null}
               >
               </NavLink>

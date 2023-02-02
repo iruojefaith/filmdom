@@ -21,23 +21,23 @@ function Trending({ displayedMovies, loading }) {
         <li className='grid grid-cols-2 md:grid-cols-5 gap-[2rem]'>
           {displayedMovies?.map((item, index) => {
             return (
-              <div className='card ' key={index}>
+              <span className='card ' key={index} >
                 <img src={`${IMAGE_URL}${item.backdrop_path}`} />
 
-                <div className='card_content '>
+                <span className='card_content '>
                   <h2 className='card_title cursor-pointer '>
                     <Link to={`./singlemovie`}> {item.title} </Link>
                   </h2>
-                  <div className='card_content_small '>
+                  <span className='card_content_small '>
                     <p className='card_text flex place-items-center my-[1rem] gap-[.2rem] md:gap-[1rem]'>
                       {item.release_date} <BiShowAlt /> <AiFillHeart />{" "}
-                      <p className=' flex place-items-center gap-2 text-[#f5b921]'>
+                      <span className=' flex spanlace-items-center gap-2 text-[#f5b921]'>
                         <BsFillStarFill /> {item.vote_average}
-                      </p>
+                      </span>
                     </p>
-                  </div>
-                </div>
-              </div>
+                  </span>
+                </span>
+              </span>
             );
           })}
         </li>
